@@ -1,1 +1,399 @@
 
+
+## **1️⃣ Encapsulation – Classes and Objects**
+
+### ❓ Question
+
+Write a program to demonstrate classes and objects.
+
+### ✅ Answer
+
+```java
+class Student {
+    String name;
+    int age;
+
+    void display() {
+        System.out.println("Name: " + name + ", Age: " + age);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Student s1 = new Student();  // Object
+        s1.name = "Shifa";
+        s1.age = 21;
+        s1.display();
+    }
+}
+```
+
+**Output:**
+
+```
+Name: Shifa, Age: 21
+```
+
+---
+
+## **2️⃣ Encapsulation – Constructor**
+
+### ❓ Question
+
+Write a program to demonstrate constructor.
+
+### ✅ Answer
+
+```java
+class Student {
+    String name;
+    int age;
+
+    Student(String n, int a) {   // Constructor
+        name = n;
+        age = a;
+    }
+
+    void display() {
+        System.out.println("Name: " + name + ", Age: " + age);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Student s1 = new Student("Shifa", 21);
+        s1.display();
+    }
+}
+```
+
+**Output:**
+
+```
+Name: Shifa, Age: 21
+```
+
+---
+
+## **3️⃣ Polymorphism – Method Overloading**
+
+### ❓ Question
+
+Implement method overloading.
+
+### ✅ Answer
+
+```java
+class Calculator {
+    int add(int a, int b) {
+        return a + b;
+    }
+    double add(double a, double b) {
+        return a + b;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Calculator c = new Calculator();
+        System.out.println("Int Sum: " + c.add(5, 3));
+        System.out.println("Double Sum: " + c.add(2.5, 3.5));
+    }
+}
+```
+
+**Output:**
+
+```
+Int Sum: 8
+Double Sum: 6.0
+```
+
+---
+
+## **4️⃣ Polymorphism – Constructor Overloading**
+
+### ❓ Question
+
+Implement constructor overloading.
+
+### ✅ Answer
+
+```java
+class Student {
+    String name;
+    int age;
+
+    Student() {
+        name = "Unknown";
+        age = 0;
+    }
+    Student(String n, int a) {
+        name = n;
+        age = a;
+    }
+
+    void display() {
+        System.out.println("Name: " + name + ", Age: " + age);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Student s1 = new Student();
+        Student s2 = new Student("Shifa", 21);
+        s1.display();
+        s2.display();
+    }
+}
+```
+
+**Output:**
+
+```
+Name: Unknown, Age: 0
+Name: Shifa, Age: 21
+```
+
+---
+
+## **5️⃣ Polymorphism – Method Overriding**
+
+### ❓ Question
+
+Implement method overriding.
+
+### ✅ Answer
+
+```java
+class Animal {
+    void sound() {
+        System.out.println("Animal makes sound");
+    }
+}
+
+class Dog extends Animal {
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal a = new Dog(); // Runtime Polymorphism
+        a.sound();
+    }
+}
+```
+
+**Output:**
+
+```
+Dog barks
+```
+
+---
+
+## **6️⃣ Inheritance – Single Level**
+
+### ❓ Question
+
+Demonstrate single level inheritance.
+
+### ✅ Answer
+
+```java
+class Animal {
+    void eat() {
+        System.out.println("Eating...");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Barking...");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+        d.eat();
+        d.bark();
+    }
+}
+```
+
+**Output:**
+
+```
+Eating...
+Barking...
+```
+
+---
+
+## **7️⃣ Inheritance – Multilevel**
+
+### ❓ Question
+
+Demonstrate multilevel inheritance.
+
+### ✅ Answer
+
+```java
+class Animal {
+    void eat() {
+        System.out.println("Eating...");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Barking...");
+    }
+}
+
+class Puppy extends Dog {
+    void weep() {
+        System.out.println("Weeping...");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Puppy p = new Puppy();
+        p.eat();
+        p.bark();
+        p.weep();
+    }
+}
+```
+
+**Output:**
+
+```
+Eating...
+Barking...
+Weeping...
+```
+
+---
+
+## **8️⃣ Abstraction – Multiple Inheritance (Interface)**
+
+### ❓ Question
+
+Demonstrate multiple inheritance using interfaces.
+
+### ✅ Answer
+
+```java
+interface A {
+    void showA();
+}
+interface B {
+    void showB();
+}
+class C implements A, B {
+    public void showA() {
+        System.out.println("From A");
+    }
+    public void showB() {
+        System.out.println("From B");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        C obj = new C();
+        obj.showA();
+        obj.showB();
+    }
+}
+```
+
+**Output:**
+
+```
+From A
+From B
+```
+
+---
+
+## **9️⃣ Abstraction – Abstract Class**
+
+### ❓ Question
+
+Demonstrate abstraction using abstract class.
+
+### ✅ Answer
+
+```java
+abstract class Shape {
+    abstract void draw();
+}
+
+class Circle extends Shape {
+    void draw() {
+        System.out.println("Drawing Circle");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Shape s = new Circle();
+        s.draw();
+    }
+}
+```
+
+**Output:**
+
+```
+Drawing Circle
+```
+
+---
+
+## **🔟 Abstraction – Multithreading**
+
+### ❓ Question
+
+Write a program to demonstrate multithreading.
+
+### ✅ Answer
+
+```java
+class MyThread extends Thread {
+    public void run() {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println(Thread.currentThread().getName() + " : " + i);
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        MyThread t1 = new MyThread();
+        MyThread t2 = new MyThread();
+
+        t1.start();
+        t2.start();
+    }
+}
+```
+
+**Output (order may vary):**
+
+```
+Thread-0 : 1
+Thread-1 : 1
+Thread-0 : 2
+Thread-1 : 2
+...
+```
+
+
+
